@@ -32,15 +32,13 @@ export default class Booking extends React.Component {
             <KeyboardAvoidingView behaviour='padding' style={styles.wrapper}>
                 <View style={styles.container}>
                     <Text style={styles.header}>- BOOKING -</Text>
-
-                    /* <ModalDropdown parlorName={['Rose', 'Najlas','Mahrose']}> */
+                        
                             <TextInput
                                 style={styles.textInput} placeholder='parlorName'
                                 onChangeText={ (parlorName) => this.setState({parlorName}) }
                                 underlineColorAndroid='transparent'
                              />
                     
-                    /* </ModalDropdown> */
                     <TextInput
                                 style={styles.textInput} placeholder='packageName'
                                 onChangeText={ (packageName) => this.setState({packageName}) }
@@ -75,8 +73,8 @@ export default class Booking extends React.Component {
   {
     //alert(this.state.parlorName);
     
-       //fetch( 'http://192.168.0.102:3000/users',
-        fetch( 'http://10.20.143.15:3000/users', 
+      // fetch( 'http://192.168.0.104:3000/users',
+        fetch( 'http://10.20.203.228:3000/users', 
        //fetch( 'http://10.90.203.131:3000/users',  
        {
             

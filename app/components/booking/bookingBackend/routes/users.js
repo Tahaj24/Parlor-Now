@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
         res.send({'success': false, 'message': 'Could not connect to database'});
       }
 
-      if(row.length > 0){
+      if(row.length> 0){
         res.send({'success': true, 'message': 'Booking is sent'});
       }
 

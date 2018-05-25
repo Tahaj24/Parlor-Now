@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-export default class Login extends React.Component {
+export default class BookingDetail extends React.Component {
    
     constructor(props) //constructor for login component
     {
@@ -51,7 +51,7 @@ export default class Login extends React.Component {
                         <TouchableOpacity
                             style={styles.btn}
                             onPress={this.login}>
-                            <Text>log in</Text>
+                            <Text>Booking Detail</Text>
                         </TouchableOpacity>
     
                 </View>
