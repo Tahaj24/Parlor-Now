@@ -1,5 +1,18 @@
 {
   "expo": {
-    "sdkVersion": "22.0.0"
+    "sdkVersion": "22.0.0" ,
+    "name": "ParlorNow",
+    "version":"0.1.0",
+    "slug":"ParlorNow",
+    "ios":{
+      "bundleIdentifier": "com.mat.ParlorNow"
+    },
+    "android":{
+      "package": "com.mat.ParlorNow",
+      "config":{
+        "googleMaps":{"apiKey":"AIzaSyB3_DIlqn0YUuf6gUVG1zV_rXxnWjb9S2I"}
+      }
+    }
+    
   }
 }

@@ -31,8 +31,8 @@ export default class Profile extends React.Component {
           <Body>
               <Right>
             <Title ></Title>
-            <Button  style = {styles.titleh}>
-              <Text>Best For You</Text>
+            <Button  style = {styles.titleh} onPress={() => this.props.navigation.navigate("Location")}>
+              <Text>Nearest Parlour</Text>
            </Button>
             </Right>
           </Body>
