@@ -63,8 +63,8 @@ export default class Login extends React.Component {
   {
       //  alert(this.state.customerName);
 
-       // fetch( 'http://192.168.0.104:3000/users', // to check if the  customer exists in the database.
-       fetch( 'http://10.20.203.228:3000/users',
+        //fetch( 'http://192.168.1.101:3000/users', // to check if the  customer exists in the database.
+       fetch( 'http://10.90.201.76:3000/users',
        {
             method: 'POST',
             headers:{

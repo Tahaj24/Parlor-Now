@@ -22,7 +22,7 @@ export default class Login extends React.Component {
         <Container>
         <Content padder>
 
-         <Image style={{backgroundColor:'#fff',alignSelf:'stretch'}} source={{uri: 'https://scontent.fkhi12-1.fna.fbcdn.net/v/t34.18173-12/26241640_1914096868605176_402852195_n.png?_nc_cat=0&oh=7b09944b23594f86be8c1a1cf193477f&oe=5B0A1F1B'}} style={{height: 200, width: 200 , marginLeft: 80 , marginTop:100 ,marginBottom:-100}}/>
+         <Image style={{backgroundColor:'#fff',alignSelf:'stretch'}} source={{uri: 'https://scontent.fkhi12-1.fna.fbcdn.net/v/t34.18173-12/26241640_1914096868605176_402852195_n.png?_nc_cat=0&oh=76529e11b49d7499e52c84b047de6682&oe=5B0D6ADB'}} style={{height: 200, width: 200 , marginLeft: 80 , marginTop:100 ,marginBottom:-100}}/>
          <Text style={{marginLeft: 10,marginTop:80 ,fontSize:15}}>Life is more beautiful when you meet the right parlour</Text>
           <Text style={{marginTop: 30, marginLeft:70, fontSize: 20}}>Welcome To ParlourNow</Text>
           <Button full rounded primary

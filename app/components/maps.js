@@ -3,6 +3,109 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { MapView } from "expo";
 
 
+export default class Location extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        markers: [{
+            title: 'Parlor1',
+            coordinates: {
+              latitude : 24.959612,
+              longitude : 67.061656,
+            },
+        },
+            {
+                title: 'Parlor2',
+                coordinates: {
+                  latitude : 24.958717,
+                  longitude : 67.065647,
+                },
+            },{
+              title: 'Parlor3',
+              coordinates: {
+                  latitude : 24.84145882514575,
+                  longitude : 67.02745532885866,
+              },
+          },
+              {
+                  title: 'Parlor4',
+                  coordinates: {
+                      latitude : 24.80045882514575,
+                      longitude : 67.06745532885866,
+                  },
+              }]
+    }
+}
+render(){
+    return (
+       <View style={styles.container}>
+           <MapView
+               style={styles.map}
+               onRegionChangeComplete={(change)=>{console.log('data',change)}}
+               initialRegion={{
+                   latitude : 24.84145882514575,
+                   longitude : 67.02745532885866,
+                   latitudeDelta : 0.3582924745390059,
+                   longitudeDelta: 0.2455376728984788
+               }}
+           >
+               {this.state.markers.map((marker,key)=> (
+                   <MapView.Marker
+                       key={key+'map'}
+                       coordinate={marker.coordinates}
+                       title={marker.title}
+                   />
+               ))}
+           </MapView>
+       </View>
+    )
+}
+};
+
+const styles = StyleSheet.create({
+container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
+},
+map : {
+    top : 0,
+    right : 0,
+    bottom : 0,
+    left : 0,
+    position : "absolute"
+
+}
+});
+
+
+
+
+
+
+
+  /*  render() {
+    return (
+      <MapView
+        style={{
+          flex: 1
+        }}
+        initialRegion={{
+          latitude: 24.9594,
+          longitude: 67.0655,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421
+        }}
+      />
+    );
+  }
+}
+*/
+
+
+
+/*
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height
 const SCREEN_WIDTH = width
@@ -41,7 +144,6 @@ export default class Location extends React.Component {
         }
         
     }
-    watchID: ? number = null
     componentDidMount(){
         navigator.geolocation.getCurrentPosition((position) => {
             //let lat = parseFloat(position.coords.latitude);
@@ -153,3 +255,4 @@ export default class Location extends React.Component {
         bottom: 0,
       },
     });
+*/

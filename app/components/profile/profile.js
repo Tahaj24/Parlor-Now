@@ -1,7 +1,7 @@
 //import React, { Component } from 'react';
 import React from 'react';
 import { StyleSheet, View, TextInput, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Title, Right } from 'native-base';
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Title, Right, Item, Input } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 
 export default class Profile extends React.Component {
@@ -37,7 +37,12 @@ export default class Profile extends React.Component {
             </Right>
           </Body>
           
-        </Header>      
+          
+        </Header>
+        
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>      
         <Content>
         <Card style={{flex: 0}}>
             <CardItem>
@@ -59,9 +64,7 @@ export default class Profile extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Text>Info</Text>
-                </Button>
+                
               </Left>
               <TouchableOpacity
                             style={styles.btn}
@@ -92,9 +95,6 @@ export default class Profile extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Text>Info</Text>
-                </Button>
                 
               </Left>
               <TouchableOpacity

@@ -13,12 +13,11 @@ var connection = mysql.createConnection({
 router.post('/', function(req, res, next) {
     var customerName = req.body.customerName;
     var customerPassword = req.body.customerPassword;
-
     connection.query(
-      //alert("in db"),
+      
       "SELECT * FROM customer WHERE customerName = ? AND customerPassword =?",
       [customerName, customerPassword], function (err, row, field) {
-
+        
         if(err){
           console.log(err);
           res.send({'success': false, 'message': 'Could not connect to database'});

@@ -72,7 +72,7 @@ export default class Signup extends React.Component {
        // alert(this.state.customerName);
 
         //fetch( 'http://10.90.203.131:3000/users', 
-        fetch( 'http://192.168.0.102:3000/users',        
+        fetch( 'http://10.90.201.76:3000/users',        
         {
             method: 'POST',
             headers:{

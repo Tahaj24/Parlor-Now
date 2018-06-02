@@ -1,9 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { Dropdown } from 'react-native-material-dropdown';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 //import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class Booking extends React.Component {
+    state = {
+        isDateTimePickerVisible: false,
+      };
+      _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+ 
+      _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+     
+      _handleDatePicked = (date) => {
+        console.log('A date has been picked: ', date);
+        this._hideDateTimePicker();
+    };
    
     constructor(props){
         super(props);
@@ -11,7 +24,7 @@ export default class Booking extends React.Component {
             parlorName:'',
             packageName: '',
             bookingDate: '',
-            bookingTime: ''
+            
         }
     }
 
@@ -28,35 +41,45 @@ export default class Booking extends React.Component {
     }
 
     render() {
+        let parlorNames = [{
+            value: 'Mahrose',
+          }, {
+            value: 'Rose',
+          }, {
+            value: 'Najlas',
+          }];
+
+          let packageNames = [{
+            value: 'Threading',
+          }, {
+            value: 'Party makeup',
+          }, {
+            value: 'Bridal makeup',
+          }];
         return (
+            
             <KeyboardAvoidingView behaviour='padding' style={styles.wrapper}>
+                
                 <View style={styles.container}>
                     <Text style={styles.header}>- BOOKING -</Text>
                         
-                            <TextInput
-                                style={styles.textInput} placeholder='parlorName'
-                                onChangeText={ (parlorName) => this.setState({parlorName}) }
-                                underlineColorAndroid='transparent'
-                             />
-                    
-                    <TextInput
-                                style={styles.textInput} placeholder='packageName'
-                                onChangeText={ (packageName) => this.setState({packageName}) }
-                                underlineColorAndroid='transparent'
-                            />
-
-                     <TextInput
-                        style={styles.textInput} placeholder='YYYY/MM/DD'
-                        onChangeText={ (bookingDate) => this.setState({bookingDate}) }
-                        underlineColorAndroid='transparent'
-                     />
+                    <Dropdown  onChangeText={ (parlorName) => this.setState({parlorName}) } label='Parlor Name'data={parlorNames }/>
+                    <Dropdown onChangeText={ (packageName) => this.setState({packageName}) } label='Package Name'data={packageNames}/>
+         
+                    <TouchableOpacity onPress={this._showDateTimePicker}>
+                        <Text style={{fontSize:18,  marginTop:20, marginBottom:20}}>Select Date and Time</Text>
+                        </TouchableOpacity>
+                        <DateTimePicker
+                        mode="datetime"
+                        isVisible={this.state.isDateTimePickerVisible}
+                        onConfirm={this._hideDateTimePicker }
+                        onConfirm={(bookingDate) => this.setState({bookingDate})}
+                        onCancel={this._hideDateTimePicker}
+                        />
 
                     
-                     <TextInput
-                        style={styles.textInput} placeholder='bookingTime'
-                        onChangeText={ (bookingTime) => this.setState({bookingTime}) }
-                        underlineColorAndroid='transparent'
-                     />
+
+                     
 
                         <TouchableOpacity
                             style={styles.btn}
@@ -67,14 +90,17 @@ export default class Booking extends React.Component {
                 </View>
             </KeyboardAvoidingView>
         );
+        
   }
 
   confirm = () => 
   {
+    alert("date "+this.state.bookingDate);
+    //alert("package"+this.state.packageName);
     //alert(this.state.parlorName);
     
-      // fetch( 'http://192.168.0.104:3000/users',
-        fetch( 'http://10.20.203.228:3000/users', 
+      // fetch( 'http://192.168.1.101:3000/users',
+        fetch( 'http://10.90.201.76:3000/users', 
        //fetch( 'http://10.90.203.131:3000/users',  
        {
             
@@ -88,7 +114,7 @@ export default class Booking extends React.Component {
                 parlorName: this.state.parlorName,
                 packageName: this.state.packageName,
                 bookingDate: this.state.bookingDate,
-                bookingTime: this.state.bookingTime,
+               
                // alert(parlorName);        
             })
             

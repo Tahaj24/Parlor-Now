@@ -15,9 +15,9 @@ import Location from './app/components/maps';
 
 const ParouNowApp = StackNavigator({
 
-     // Home: { screen: Welcome},
-      //Signup:{screen: Signup},
-      //Login: {screen: Login},
+      Home: { screen: Welcome},
+      Signup:{screen: Signup},
+      Login: {screen: Login},
       Profile: { screen: Profile},
       Booking:{screen: Booking},
       Location:{screen: Location}

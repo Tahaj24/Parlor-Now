@@ -12,16 +12,15 @@ var connection = mysql.createConnection({
 /* GET users listing. */
 router.post('/', function(req, res, next) {
   var bookingDate = req.body.bookingDate;
-  var bookingTime = req.body.bookingTime;
   var parlorName = req.body.parlorName;
   var packageName = req.body.packageName;
 
 
-
+/*
   connection.query(
     
-    "INSERT INTO booking ( bookingDate, bookingTime, parlorName, packageName) VALUES (?, ?, ?, ?)",
-    [  bookingDate, bookingTime, parlorName, packageName], function (err, row, field) {
+    "INSERT INTO booking ( bookingDate, parlorName, packageName) VALUES (?, ?, ?)",
+    [  bookingDate, parlorName, packageName], function (err, row, field) {
 
       if(err){
         console.log(err);
@@ -38,5 +37,12 @@ router.post('/', function(req, res, next) {
 
     });
 });
-
+*/
+var sql = "INSERT INTO booking ( bookingDate, parlorName, packageName) VALUES ?";
+var  values=[bookingDate, parlorName, packageName];
+connection.query(sql,values, function (err, result) {
+    if (err) throw err;
+    console.log("record inserted");
+  });
+});
 module.exports = router;
